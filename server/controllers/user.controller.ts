@@ -9,9 +9,7 @@ import path from "path";
 import sendMail from "../utils/sendMail";
 import { sendToken } from "../utils/jwt";
 import { redis } from "../utils/redis";
-import {
-  getUserById
-} from "../services/user.service";
+import {getUserById} from "../services/user.service";
 import cloudinary from "cloudinary";
 
 
@@ -321,7 +319,7 @@ export const updateProfilePicture = CatchAsyncError(
       const user = await userModel.findById(userId).select("+password");
 
       if (avatar && user) {
-        // if user have one avatar then call this if
+        // if user has one avatar then call this 
         if (user?.avatar?.public_id) {
           // first delete the old image
           await cloudinary.v2.uploader.destroy(user?.avatar?.public_id);
