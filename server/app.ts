@@ -22,6 +22,7 @@ app.use(
 
 // routes
 app.use("/api/v1", userRouter);
+app.use("/api/v1", courseRouter);
 
 // test route
 app.get("/test", (req: Request, res: Response, next: NextFunction) => {
