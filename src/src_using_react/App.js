@@ -10,7 +10,7 @@ function App() {
       <Header />
       <div className="main-content">
         <section className="hero">
-          <div className="overlay-text">Welcome to LearnLink</div>
+          <div className="overlay-text">Welcome to CourseMate</div>
         </section>
         <section className="features container">
           <div className="feature-box">
