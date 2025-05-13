@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnLink - Sign Up</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 60%;
+            height: 60%;
+            padding: 50px 100px 100px 100px;
+            background-color: #d6c7a5;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .topnav {
+            background-color: #d9cbb5;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            height: 4%;
+            display: flex;
+            padding: 10px;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+        }
+        .topnav .brand {
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .form-group {
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+            align-content: center;
+            padding: 20px;
+        }
+        .form-group label {
+            flex: 1;
+            text-align: left;
+            padding-right: 0px;
+            font-size: large;
+        }
+        .form-group input {
+            flex: 2;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #444;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            width: 15%;
+            border: none;
+            background-color: #2e2e2e;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: large;
+        }
+        button:hover {
+            background-color: #444;
+        }
+        .sign-in {
+            margin-top: 30px;
+        }
+        .sign-in a {
+            color: #2e2e2e;
+            text-decoration: none;
+        }
+        .sign-in a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation bar with LearnLink -->
+    <div class="topnav">
+        <div class="brand" onclick="goHome()">LearnLink</div>
+    </div>
+
+    <!-- Signup form container -->
+    <div class="container">
+        <h1>SIGN UP</h1>
+
+        <!-- Form fields -->
+        <form action="/submit" method="post">
+                <div class="form-group">
+                    <label for="full-name">Full Name:</label>
+                    <input type="text" id="full-name" name="full-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                </div>
+    
+            <button type="submit">Register</button>
+        </form>
+
+        <!-- Sign in option -->
+        <div class="sign-in" onclick="goToSignIn()">
+            Already have an account? Sign In
+        </div>
+    </div>
+    <script>
+        // Function to go back to the homepage
+        function goHome() {
+            window.location.href = "index.html"; // Redirect to home page
+        }
+
+        // Function to go to login page
+        function goToSignIn() {
+            window.location.href = "signin.html"; // Redirect to login page
+        }
+    </script>
+
+</body>
+</html>

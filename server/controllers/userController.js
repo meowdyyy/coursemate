@@ -2,6 +2,7 @@ const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const JWT_SECRET = process.env.JWT_SECRET || 'secretkey';
 
+
 // User controller methods
 exports.signup = async (req, res) => {
   console.log('Received signup request:', req.body);

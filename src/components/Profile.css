@@ -1,0 +1,124 @@
+/* Profile Page Layout */
+.profile-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 5em;
+  height: 100vh;
+  overflow-y: auto;
+  margin-bottom: auto;
+  padding: 20px;
+  gap: 20px;
+  width: 95%;
+  max-width: 95%;
+  box-shadow: 0 0 10px #ccc;
+}
+
+.profile-sidebar {
+  width: 25%;
+  background-color: #f9f7f2;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 3px #ccc;
+}
+
+.uploads-section {
+  flex: 1;
+  background-color: #f9f7f2;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 3px #ccc;
+}
+
+/* Upload Section Grid */
+.uploads-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.profile-page .upload-card {
+  background-color: rgb(206, 223, 240);
+  border-radius: 20px;
+  border: rgb(16, 94, 172);
+  border-width: 5px;
+  padding: 1em;
+}
+
+.profile-page .upload-card h3 {
+  background-color: rgb(255, 255, 255);
+}
+.profile-info button{
+width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .profile-page {
+    flex-direction: column;
+  }
+
+  .profile-sidebar, .uploads-section {
+    width: 100%;
+  }
+
+  .uploads-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .uploads-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.avatar-upload {
+  margin-bottom: 15px;
+}
+
+.avatar-preview {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 10px 0;
+  border: 2px solid #ddd;
+}
+
+.avatar-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-display {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 20px;
+  border: 3px solid #3498db;
+}
+
+.avatar-display img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.password-change-section {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.password-change-section h3 {
+  margin-bottom: 15px;
+}
+
+.error {
+  color: #e74c3c;
+  margin-bottom: 10px;
+}

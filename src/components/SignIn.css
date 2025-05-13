@@ -1,0 +1,73 @@
+body,html,.App,#react {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color:  #f9f7f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    justify-self: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    color: #555;
+}
+/* Center Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width:100%;
+}
+
+/* Login Form */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.enter-btn {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 24px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 20px;
+    width: max-content;
+    transition: background-color 0.3s ease;
+}
+
+.enter-btn:hover {
+    background-color: #45a049;
+}
+
+/* Form input fields */
+.input-field {
+    width: 300px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    border: none;
+    background-color: #f0ece7;
+    font-size: 16px;
+}
+
+.login-title {
+    font-size: 48px;
+    font-weight: bold;
+    color:black;
+}
+
+/* Sign Up link */
+.signup-link {
+    font-size: 14px;
+    color: #555;
+    cursor: pointer;
+}
+
