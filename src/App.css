@@ -1,0 +1,252 @@
+body,html,.layout {
+  background-color:#fff6df;
+  color: black;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+#root{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color:#fff6df;
+}
+
+.App {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color:#fff6df;
+}
+
+/* Top Navigation Bar */
+.topnav {
+  background-color: #c9b089;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  position: fixed;
+  height: 50px;
+  top: 0;
+  left: 0;
+  right: 0;
+  align-items: center;
+  z-index: 100;
+}
+
+.topnav .toggle-btn {
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+  background-color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 2px solid #333;
+}
+
+.topnav .brand {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Right-aligned buttons container */
+.topnav .nav-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0px 20px;
+  gap: 10px;
+}
+
+.topnav .nav-right .login-btn {
+  background-color: #277b14;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.topnav .logout-btn {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #ff1a1a;
+}
+
+.nav-right button {
+  margin-left: 10px;
+}
+
+.topnav .nav-right .login-btn:hover {
+  background-color: #45a049;
+}
+
+/* Profile Image */
+.topnav .nav-right .profile-img {
+  width: 30px;
+  height: 30px;
+  padding: 10px 10px;
+  margin: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid #333;
+  cursor: pointer;
+}
+
+/* Side Navigation */
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  background-color: #c9b089;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  z-index: 999;
+}
+.sidenav.open {
+  width: 12%;
+}
+.sidenav a {
+  padding: 30px 15px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #333;
+  display: block;
+  transition: 0.3s;
+  text-align: center;
+}
+.sidenav p {
+  padding: 0px 15px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #333;
+  display: block;
+  transition: 0.3s;
+  text-align: center;
+}
+.sidenav div {
+  padding: 100px 15px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #333;
+  display: block;
+  transition: 0.3s;
+  text-align: center;
+  bottom: 0px;
+}
+.sidenav a:hover {
+  background-color: #f1f1f1;
+}
+.sidenav i {
+  margin-right: 10px;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 0;
+  transition: margin-left 0.5s ease;
+  margin-top: 100px;
+  padding:10px 50px;
+  width: 95%;
+  margin-right: 0;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+}
+.main-content.shifted {
+  transition: margin-left 0.5s ease;
+  margin-left: 250px;
+}
+
+.hero {
+  background-color: #e2d3a0;
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  margin-top: 900px;
+  position: relative;
+  /* Remove the problematic background image for now */
+  /* background-image: url('%PUBLIC_URL%/images/bg.avif'); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.hero .overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(98, 54, 54);
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Features Section */
+.features {
+  background-color:#fff6df;
+  padding: 50px 10px;
+  z-index: 0;
+  box-shadow:none;
+  width: 100%;
+  width:165vh;
+}
+.feature-box {
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  margin: 20px;
+  width: 100%;
+  text-align: left;
+}
+.feature-box:nth-child(even) {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+.feature-image {
+  flex: 1;
+  height: 30vh;
+  background-color: #ded7c3;
+}
+.feature-content {
+  flex: 2;
+  padding: 20px;
+  color: black;
+}
+.feature-content h4 {
+  font-weight: bold;
+}
+
+@media (max-width:1400px) {
+  .feature-box {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .main-content  {
+    margin-left: 0;
+    width: max-content;
+    transition: margin-left 0.5s ease;
+    margin-top: 100px;
+  }
+
+  .main-content.shifted {
+    margin-left: 12%;
+    width: calc(100% - 12%);
+  }
+}
