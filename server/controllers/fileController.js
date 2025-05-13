@@ -1,8 +1,8 @@
 const File = require('../models/File');
 
-// File controller methods
+//File controller methods 
 exports.getAllFiles = async (req, res) => {
-  // Get filter values and `browse` flag from query parameters
+  //Getting filter values and `browse` flag from query parameters 
   const {
     field = '',
     branch = '',
@@ -17,10 +17,10 @@ exports.getAllFiles = async (req, res) => {
   console.log('Notes request with query parameters:', req.query);
 
   try {
-    // Set filter to include `userId` only if `browse` is not specified or is false
+    //Set filter to include `userId` only if `browse` is not specified or is false 
     let filter = browse === 'true' ? {} : { userId: req.userId };
 
-    // Add additional filters if provided (using trim to handle whitespace)
+    //Adding additional filters if provided (using trim to handle whitespace) 
     if (field && field.trim()) {
       filter.field = field.trim();
       console.log(`Filtering by field: ${field}`);
@@ -36,34 +36,34 @@ exports.getAllFiles = async (req, res) => {
       console.log(`Filtering by course: ${course}`);
     }
 
-    // Handle resourceType filter - ensure it matches the enum values in the schema
+    //Handle resourceType filter - ensure it matches the enum values in the schema 
     if (resourceType && resourceType.trim()) {
-      // Convert to lowercase to match the schema's enum values
+      //Converting to lowercase to match the schema's enum values 
       const normalizedResourceType = resourceType.trim().toLowerCase();
 
-      // Check if it's one of the valid resource types
+      //Checking if it's one of the valid resource types 
       const validResourceTypes = ['notes', 'quiz', 'midterm', 'final', 'video'];
       if (validResourceTypes.includes(normalizedResourceType)) {
         filter.resourceType = normalizedResourceType;
       } else {
-        // If not a valid resource type, use a case-insensitive regex as fallback
+        //If not a valid resource type, use a case-insensitive regex as fallback 
         filter.resourceType = new RegExp('^' + resourceType.trim() + '$', 'i');
       }
 
       console.log(`Filtering by resourceType: ${resourceType} (normalized: ${normalizedResourceType})`);
     }
 
-    // Handle semester filter
+    //Handling semester filter 
     if (semester && semester.trim()) {
       filter.semester = semester.trim();
       console.log(`Filtering by semester: ${semester}`);
     }
 
-    // Handle year filter - ensure it's a valid number within reasonable range
+    //Handle year filter - ensure it's a valid number within reasonable range 
     if (year && year.trim() && !isNaN(parseInt(year.trim()))) {
       const yearValue = parseInt(year.trim());
 
-      // Only accept years between 2000 and 2100 to avoid potential errors
+      //Only accept years between 2000 and 2100 to avoid potential errors 
       if (yearValue >= 2000 && yearValue <= 2100) {
         filter.year = yearValue;
         console.log(`Filtering by year: ${filter.year}`);
@@ -72,7 +72,7 @@ exports.getAllFiles = async (req, res) => {
       }
     }
 
-    // Determine sort order
+    //Determine the sort order 
     let sortOption = {};
     if (sort === 'rating') {
       sortOption = { rating: -1 };
@@ -81,11 +81,11 @@ exports.getAllFiles = async (req, res) => {
     } else if (sort === 'downloads') {
       sortOption = { downloads: -1 };
     } else {
-      // Default sort by rating
+      //Default sort by rating 
       sortOption = { rating: -1 };
     }
 
-    // Fetch files based on the filter and sort
+    //Fetch files based on the filter and sort 
     console.log('Applying filter:', JSON.stringify(filter, null, 2));
     console.log('Applying sort:', JSON.stringify(sortOption, null, 2));
 
@@ -93,7 +93,7 @@ exports.getAllFiles = async (req, res) => {
       const files = await File.find(filter).sort(sortOption);
       console.log(`Found ${files.length} files matching the criteria`);
 
-      // Log the first few files for debugging
+      //Log the first few files for debugging 
       if (files.length > 0) {
         console.log('Sample of matching files:');
         files.slice(0, 3).forEach((file, index) => {
@@ -109,7 +109,7 @@ exports.getAllFiles = async (req, res) => {
           });
         });
       } else {
-        // If no files found, log all files in the database for debugging
+        //If no files are found, log all files in the database for debugging 
         console.log('No files found with the current filters. Checking all files in the database:');
         const allFiles = await File.find({}).limit(5);
         allFiles.forEach((file, index) => {
@@ -126,7 +126,7 @@ exports.getAllFiles = async (req, res) => {
         });
       }
 
-      res.json(files); // Return files based on the filter
+      res.json(files); //Returning files based on the filter 
     } catch (err) {
       console.error('Error executing query:', err);
       res.status(500).json({ message: 'Error executing query', error: err.message });
@@ -151,7 +151,7 @@ exports.getFileById = async (req, res) => {
 exports.updateFile = async (req, res) => {
   const { title, field, branch, course } = req.body;
 
-  // Check for required fields (only `title` is mandatory in this case)
+  //Check for required fields (only `title` is mandatory in this case) 
   if (!title) return res.status(400).json({ message: 'Title is required' });
 
   try {
@@ -187,7 +187,7 @@ exports.uploadFile = async (req, res) => {
     return res.status(400).json({ message: 'Field, branch, course, and title are required' });
   }
 
-  // Validate course format (should be like CSE110)
+  //Validating course format (should be like CSE110) 
   const courseCodeRegex = /^[A-Z]{2,4}\d{3,4}$/;
   if (!courseCodeRegex.test(course)) {
     return res.status(400).json({ message: 'Course code should follow format like CSE110' });
@@ -196,7 +196,7 @@ exports.uploadFile = async (req, res) => {
   console.log('Received file:', req.file);
   console.log('Received body:', req.body);
 
-  // Save the file details to the database
+  //Save the file details to the database 
   const newFile = new File({
     userId: req.userId,
     filename: req.file.filename,
@@ -241,7 +241,7 @@ exports.trackDownload = async (req, res) => {
     const file = await File.findById(req.params.id);
     if (!file) return res.status(404).json({ message: 'File not found' });
 
-    // Increment download count
+    //Increment the download count 
     file.downloads += 1;
     await file.save();
 
@@ -263,7 +263,7 @@ exports.rateFile = async (req, res) => {
     const file = await File.findById(req.params.id);
     if (!file) return res.status(404).json({ message: 'File not found' });
 
-    // Update rating
+    //Update ratings 
     const newRatingTotal = (file.rating * file.ratingCount) + parseInt(rating);
     file.ratingCount += 1;
     file.rating = newRatingTotal / file.ratingCount;
@@ -279,15 +279,15 @@ exports.rateFile = async (req, res) => {
 
 exports.getAllCourses = async (req, res) => {
   try {
-    // Find all unique course values in the files collection
+    //Find all unique course values in the files collection 
     const courses = await File.distinct('course');
 
     console.log('Available courses found:', courses);
 
-    // Sort the courses alphabetically for better user experience
+    //Sort the courses alphabetically for better user experience 
     courses.sort();
 
-    // If no courses found, return some default courses for testing
+    //If no courses found, return some default courses for testing 
     if (!courses || courses.length === 0) {
       console.log('No courses found, returning default courses');
       return res.json(['CSE110', 'CSE220', 'CSE422']);
@@ -296,7 +296,7 @@ exports.getAllCourses = async (req, res) => {
     res.json(courses);
   } catch (err) {
     console.error('Error fetching courses:', err);
-    // Even on error, return some default courses to ensure the dropdown works
+    //Even on error, return some default courses to ensure the dropdown works 
     res.json(['CSE110', 'CSE220', 'CSE422']);
   }
 };
