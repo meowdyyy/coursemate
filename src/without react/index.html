@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnLink - Homepage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f9f7f2;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Top Navigation Bar */
+        .topnav {
+            background-color: #d9cbb5;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            align-items: center;
+            
+        }
+        .topnav .toggle-btn {
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+            background-color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 2px solid #333;
+        }
+        .topnav .brand {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .topnav .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Sign In Button */
+        .topnav .nav-right .login {
+            margin-right: 20px;
+        }
+        .topnav .nav-right .login-btn {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .topnav .nav-right .login-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Profile Image */
+        .topnav .nav-right .profile-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #fff;
+            border: 2px solid #333;
+            cursor: pointer;
+        }
+
+        /* Side Navigation */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            background-color: #d9cbb5;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        .sidenav a {
+            padding: 30px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #333;
+            display: block;
+            transition: 0.3s;
+            text-align: center;
+        }
+        .sidenav p {
+            padding: 0px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #333;
+            display: block;
+            transition: 0.3s;
+            text-align: center;
+        }
+        .sidenav div {
+            padding: 100px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #333;
+            display: block;
+            transition: 0.3s;
+            text-align: center;
+            bottom: 0px;
+        }
+        .sidenav a:hover {
+            background-color: #f1f1f1;
+        }
+        .sidenav i {
+            margin-right: 10px;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 0;
+            transition: margin-left 0.5s;
+        }
+        .hero {
+            background-image: url('your-image-path.jpg');
+            background-color: #ded7c3;
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            position: relative;
+        }
+        .hero .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 50px 0;
+        }
+        .feature-box {
+            display: flex;
+            align-items: center;
+            padding: 30px;
+            margin: 20px;
+        }
+        .feature-box:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        .feature-image {
+            flex: 1;
+            height: 200px;
+            background-color: #ded7c3;
+        }
+        .feature-content {
+            flex: 2;
+            padding: 20px;
+        }
+        .feature-content h4 {
+            font-weight: bold;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .feature-box {
+                flex-direction: column;
+            }
+            .feature-box:nth-child(even) {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <div class="topnav">
+        <span class="toggle-btn" onclick="toggleNav()">☰</span>
+        <div class="brand">LearnLink</div>
+        <div class="nav-right">
+            <button class="login-btn">Sign In</button>
+            <a href="profile.html"><div class="profile-img"></div></a>
+        </div>
+    </div>
+
+    <!-- Side Navigation -->
+    <div id="mySidenav" class="sidenav">
+        <a href="#"><i class="fas fa-home"></i> Home</a>
+        <a href="#"><i class="fas fa-file-alt"></i> Shared Documents</a>
+        <a href="#"><i class="fas fa-video"></i> VideoHub</a>
+        <a href="#"><i class="fas fa-edit"></i> Editor</a>
+        <a href="#"><i class="fas fa-upload"></i> Publish</a>
+        <a href="#"><i class="fas fa-search"></i> Browse</a>
+        <div>
+        <a href="#">Contact Us</a>
+        <p> &copy; Learnlink</p></div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main" class="main-content">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="overlay-text">Lorem Ipsum Dolor Sit Amet</div>
+        </div>
+
+        <!-- Features Section -->
+        <section class="features container">
+            <div class="feature-box">
+                <div class="feature-image"></div>
+                <div class="feature-content">
+                    <h4>Feature 1</h4>
+                    <p>Feature 1 description goes here. It provides users with the ability to do XYZ.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <div class="feature-image"></div>
+                <div class="feature-content">
+                    <h4>Feature 2</h4>
+                    <p>Feature 2 description goes here. It provides users with the ability to do XYZ.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <div class="feature-image"></div>
+                <div class="feature-content">
+                    <h4>Feature 3</h4>
+                    <p>Feature 3 description goes here. It provides users with the ability to do XYZ.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function toggleNav() {
+            let sidenav = document.getElementById("mySidenav");
+            let main = document.getElementById("main");
+            if (sidenav.style.width === "250px") {
+                sidenav.style.width = "0";
+                main.style.marginLeft = "0";
+            } else {
+                sidenav.style.width = "250px";
+                main.style.marginLeft = "250px";
+            }
+        }
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
