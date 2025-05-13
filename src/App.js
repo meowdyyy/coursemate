@@ -27,6 +27,7 @@ function App() {
     setSideNavOpen((prevState) => !prevState);
   };
 
+  
   // Check if the user is authenticated
   const isAuthenticated = () => {
     return !!localStorage.getItem('authToken');
