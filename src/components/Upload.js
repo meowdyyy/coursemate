@@ -7,7 +7,7 @@ import { FaFileAlt, FaTimes } from 'react-icons/fa';
 const Upload = ({ isSidenavOpen }) => {
     const [file, setFile] = useState(null);
     const [fileData, setFileData] = useState(null);
-    const [title, setTitle] = useState(''); // New title state
+    const [title, setTitle] = useState(''); //New title state 
     const [selectedField, setSelectedField] = useState('');
     const [selectedBranch, setSelectedBranch] = useState('');
     const [selectedCourse, setSelectedCourse] = useState('');
@@ -44,7 +44,7 @@ const Upload = ({ isSidenavOpen }) => {
             return;
         }
 
-        // Validate course format (should be like CSE110)
+        //Validating the course format (should be like CSE110) 
         const courseCodeRegex = /^[A-Z]{2,4}\d{3,4}$/;
         if (!courseCodeRegex.test(selectedCourse)) {
             setError('Course code should follow format like CSE110');
@@ -60,12 +60,12 @@ const Upload = ({ isSidenavOpen }) => {
         formData.append('field', selectedField);
         formData.append('branch', selectedBranch);
         formData.append('course', selectedCourse);
-        formData.append('resourceType', resourceType.toLowerCase()); // Ensure lowercase for consistency
+        formData.append('resourceType', resourceType.toLowerCase()); //Ensure lowercase for consistency 
         formData.append('semester', semester);
-        formData.append('year', year.toString()); // Ensure it's a string
+        formData.append('year', year.toString()); //Ensure that it's a string 
 
 
-        // Log FormData for debugging
+        //Logging the FormData for debugging 
         for (let pair of formData.entries()) {
             console.log(pair[0] + ': ' + pair[1]);
         }
@@ -93,8 +93,8 @@ const Upload = ({ isSidenavOpen }) => {
             console.error('Error uploading file:', err);
         } finally {
             setLoading(false);
-            // Redirect to Browse page with a state parameter to indicate a new upload
-            // This will help the Browse component know that it should refresh the course list
+            //Redirecting to Browse page with a state parameter to indicate a new upload 
+            //This will help the Browse component know that it should refresh the course list 
             navigate('/browse', {
                 state: {
                     newUpload: true,
@@ -129,11 +129,11 @@ const Upload = ({ isSidenavOpen }) => {
                     id="title"
                     className="upload-input"
                     placeholder="Enter a title"
-                    value={title}  // This binds the input value to the title state
+                    value={title}  //This binds the input value to the title state 
                     onChange={(e) => {
                         console.log("Title input changed: ", e.target.value);
                         setTitle(e.target.value);
-                    }} // Updates the title state when input changes
+                    }} //Updates the title state when input changes 
                     required
                 />
 
