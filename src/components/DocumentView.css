@@ -1,0 +1,133 @@
+.document-view{
+  margin-top: 5em;
+  height: 100vh; /* Use full viewport height */
+  overflow-y: auto; /* Allow scrolling if content exceeds height */
+}
+/* Document Viewing Area */
+.document-view .document-content {
+  background-color: #fef6e4;
+  border: 1px solid #f3d3b3;
+  border-radius: 10px;
+  padding: 0px 10px;
+  margin: 20px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+/* Document Header */
+.document-view .document-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  background-color: #fef6e4;
+  color: #6a0dad;
+  border-radius: 10px;
+}
+
+.document-view .document-header h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.document-view .edit-btn {
+  background-color: #ffffff;
+  color: #6a0dad;
+  border: 1px solid #ffffff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.document-view .edit-btn:hover {
+  background-color: #5a0ba5;
+  color: white;
+}
+
+/* Buttons */
+.document-view .document-actions button {
+  background-color: #e85959;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 10px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.document-view .document-actions button:hover {
+  background-color: #5a0ba5;
+  transform: scale(1.05);
+}
+
+.document-view .upload-btn {
+  background-color: #5aa469;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.document-view .upload-btn:hover {
+  background-color: #4a9258;
+  transform: scale(1.05);
+}
+
+/* Comments Sidebar */
+.document-view .comments-sidebar {
+
+  width: 90%;
+  background-color: #ffffff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  margin: 20px 50px 500px 50px;
+  padding: 20px 20px 100px 20px;
+  overflow-y: auto;
+}
+.comment-sidebar .add-comment-form {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.comment-sidebar .add-comment-form textarea {
+  width: 75%;
+  height: 100px;
+  margin-right: 10px;
+}
+
+.comment-sidebar .add-comment-form button {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.comment-sidebar .comment {
+  margin-bottom: 15px;
+}
+
+.comment-sidebar .reply-form {
+  margin-top: 10px;
+}
+
+.comment-sidebar .replies {
+  margin-left: 20px;
+}
+
+.comment-sidebar .comment button {
+  margin-left: 10px;
+}
+
+.comment-sidebar .comment .reply {
+  font-style: italic;
+}
+
+.fas.fa-comment, .fas.fa-times {
+  margin-right: 10px;
+}
