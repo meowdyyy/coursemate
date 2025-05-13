@@ -8,6 +8,7 @@ const { upload, handleMulterError } = require('../middleware/upload');
 router.post('/signup', userController.signup);
 router.post('/signin', userController.signin);
 
+
 // Protected routes
 router.get('/profile', authenticate, userController.getProfile);
 router.put('/profile', authenticate, userController.updateProfile);
