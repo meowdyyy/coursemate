@@ -31,7 +31,6 @@ cd coursemate
 2. Install dependencies
 ---For Frontend (React):
 ```bash
-cd client
 npm install
 ```
 ---For Backend (Node.js):
