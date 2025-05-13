@@ -8,7 +8,11 @@ function FileList() {
     // Fetch files from the backend
     axios.get('http://localhost:5050/notes')
       .then(response => {
+
+        setFiles(response.data); // Store the file metadata
+
         setFiles(response.data);
+
       })
       .catch(error => {
         console.error('Error fetching files:', error);
