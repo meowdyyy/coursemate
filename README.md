@@ -25,7 +25,7 @@
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/coursemate.git
+git clone https://github.com/meowdyyy/coursemate.git
 cd coursemate
 ```
 2. Install dependencies
@@ -49,7 +49,6 @@ JWT_SECRET=your_jwt_secret_key
 6. Run the development server:
 ---For Frontend (React):
 ```bash
-cd client
 npm start
 ```
 ---For Backend (Node.js):
