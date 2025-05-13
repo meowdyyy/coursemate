@@ -1,0 +1,99 @@
+.edit-file-page {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f4f6f8;
+    font-family: Arial, sans-serif;
+  }
+  
+  .edit-file-container {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px 40px; /* Adjusted padding to make rows closer */
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .edit-file-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5ch;
+    font-weight: bold;
+  }
+  
+  .rowordering {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Align label and content closer */
+    gap: 10px;
+    margin: 0;
+    padding: 5px 0; /* Adjusted padding to make rows closer */
+  }
+  
+  .edit-file-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .edit-file-container label {
+    font-size: 0.9rem;
+    color: #4d463d;
+  }
+  
+  .edit-file-container input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+  
+  .edit-file-container input[type="text"]:focus {
+    border-color: #6c63ff;
+    outline: none;
+  }
+  
+  .edit-file-container p,
+  .browse-dropdown {
+    font-size: 0.85rem;
+    color: #383838;
+    background: #b1b0b0;
+    padding: 5px 8px;
+    border-radius: 8px;
+  }
+  
+  .browse-dropdown {
+    border: 1px solid #ddd;
+    font-size: 0.85rem;
+  }
+  
+  .edit-file-container button {
+    padding: 10px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #6c63ff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .edit-file-container button:hover {
+    background-color: #5753d6;
+  }
+  
+  .edit-file-container .error-message {
+    color: #ff5c5c;
+    background-color: #ffeaea;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .edit-file-container .loading-message {
+    color: #6c63ff;
+    text-align: center;
+  }
+  
